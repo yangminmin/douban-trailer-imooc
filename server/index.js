@@ -1,13 +1,14 @@
 const koa = require("koa");
 const app = new koa();
-const { htmlTpl, ejsTpl, pugTpl } = require("./tpl");  //解构赋值的思想
-const ejs = require("ejs");
-const pug = require("pug");
+const views = require('koa-views');
+const { resolve } = require('path');
+app.use(views(resolve(__dirname, "./views"), {
+	extension: 'pug'
+}));
 app.use(async (ctx, next) => {
-	ctx.type = "text/html;charset=utf-8";
-	ctx.body = pug.render(pugTpl, {
-		you: "Luke",
-		me: "yang"
+	await ctx.render('index', {
+		you: '兰素馨',
+		me: 'ym'
 	});
 });
 app.listen(9999);
