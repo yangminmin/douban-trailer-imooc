@@ -1,7 +1,7 @@
 {
   "name": "douban-trailer-imooc",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is Douban Example",
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
@@ -24,6 +24,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "koa": "^2.5.2",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "puppeteer": "^1.7.0"
   }
 }
