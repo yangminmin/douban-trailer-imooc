@@ -1,9 +1,9 @@
-const puppeteer = require('puppeteer');
-const url = `https://movie.douban.com/tag/#/?sort=R&range=6,10&tags=`;
+const puppeteer = require('puppeteer')
+const url = `https://movie.douban.com/tag/#/?sort=R&range=6,10&tags=`
 const sleep = time => new Promise(resolve => {
 	setTimeout(resolve, time);
-});
-(async () => {
+})
+;(async () => {
 	console.log('start visit the target page');
 	const browser = await puppeteer.launch({
 		executablePath: '../../chromium/chrome.exe',
@@ -49,5 +49,7 @@ const sleep = time => new Promise(resolve => {
 	});
 
 	browser.close();
-	console.log(result);
+	// console.log(result);
+	process.send({result});
+	process.exit(0);
 })()
